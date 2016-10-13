@@ -26,6 +26,8 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
 
+import java.util.Map;
+
 /**
  * A {@link io.dropwizard.ConfiguredBundle} that provides hassle-free configuration of Swagger and Swagger UI
  * on top of Dropwizard.
@@ -40,7 +42,7 @@ public abstract class SwaggerBundle<T extends Configuration> implements Configur
     public void initialize(Bootstrap<?> bootstrap) {
         bootstrap.addBundle(new ViewBundle<Configuration>() {
             @Override
-            public ImmutableMap<String, ImmutableMap<String, String>> getViewConfiguration(final Configuration configuration) {
+            public Map<String, Map<String, String>> getViewConfiguration(final Configuration configuration) {
                 return ImmutableMap.of();
             }
         });
